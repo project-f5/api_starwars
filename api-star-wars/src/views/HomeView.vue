@@ -1,11 +1,8 @@
 <template>
-  <header>Explore The Galaxy</header>
-  <div v-for="(character, index) in characters" :key="character.index">
-    <apiListingCards
-      :src="images[index].url"
-      :name="character.name"
-      :gender="character.gender"
-    />
+  <HeaderComponent />
+  <h4>CHARACTER GUIDE</h4>
+  <div class="card" v-for="(character, index) in characters" :key="character.index">
+    <apiListingCards :src="images[index].url" :name="character.name" :gender="character.gender" class="grid"/>
   </div>
   <footer>This is the footer</footer>
 </template>
@@ -117,4 +114,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat (4,1fr);
+  grid-template-rows: repeat (5,1fr);
+}
+</style>

@@ -1,14 +1,15 @@
 <template>
-  <div>
-    <img :src="src" />
+  <div class="card" >
+    <img :src="src"/>
     <ul>
-      <li>{{ name }}</li>
-      <li>{{ gender }}</li>
-      <li></li>
-      <li></li>
+      <li>{{name}}</li>
+      <li>{{gender}}</li>
+      <li>Species</li>
+      <li>Homeworld</li>
     </ul>
   </div>
 </template>
+
 <script>
 export default {
   name: "apiListingCards",
@@ -26,7 +27,18 @@ export default {
       type: String,
       required: true,
     },
+
   },
 };
 </script>
-<style></style>
+
+<style scoped>
+.card{
+  border: 2px solid white;
+  display: flex;
+  direction: row;
+  justify-content: center;
+  width: 20%;
+  height: 100px;
+}
+</style>
