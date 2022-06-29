@@ -6,10 +6,11 @@ export default {
     };
   },
   mounted() {
-    fetch("https://swapi.dev/api/people")
+    fetch("https://swapi.dev/api/people/")
       .then((response) => response.json())
-      .then((data) => (this.characters = data.results));
-  },
+      .then((data) => {this.characters = data.results}); 
+  }
+  
 };
 </script>
 

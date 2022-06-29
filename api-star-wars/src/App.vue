@@ -9,7 +9,7 @@ export default {
 
 <template>
   <h1>Listado de personajes Star Wars</h1>
-  <HomeView></HomeView>
+  <HomeView/>
 </template>
 
 <style></style>
