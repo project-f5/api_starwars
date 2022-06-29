@@ -8,7 +8,6 @@ export default {
 </script>
 
 <template>
-  <h1>Listado de personajes Star Wars</h1>
   <HomeView></HomeView>
 </template>
 
