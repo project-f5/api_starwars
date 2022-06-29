@@ -3,12 +3,13 @@
   <div>
     <apiListingCards :characters="characters" />
   </div>
-  <footer>This is the footer</footer>
+  <FooterComponent />
 </template>
 
 <script>
 import apiListingCards from "../components/apiListingCards.vue";
 import HeaderComponent from "../components/HeaderComponent.vue";
+import FooterComponent from "../components/FooterComponent.vue";
 export default {
   name: "HomeView",
   data() {
@@ -48,7 +49,7 @@ export default {
   created() {
     this.getCharacters();
   },
-  components: { apiListingCards, HeaderComponent },
+  components: { apiListingCards, HeaderComponent, FooterComponent },
 };
 </script>
 
