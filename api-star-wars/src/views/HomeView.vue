@@ -1,8 +1,10 @@
 <template>
   <HeaderComponent />
   <h4>CHARACTER GUIDE</h4>
-  <div class="card" v-for="(character, index) in characters" :key="character.index">
-    <apiListingCards :src="images[index].url" :name="character.name" :gender="character.gender" class="grid"/>
+  <div class="grid">
+    <div class="box" v-for="(character, index) in characters" :key="character.index">
+      <apiListingCards :src="images[index].url" :name="character.name" :gender="character.gender" />
+    </div>
   </div>
   <footer>This is the footer</footer>
 </template>
@@ -115,10 +117,16 @@ export default {
 </script>
 
 <style scoped>
-
 .grid{
-  display:grid;
-  grid-template-columns: repeat (4,1fr);
-  grid-template-rows: repeat (5,1fr);
+  border: 2px solid black;
+  width: 200vh;
+  height: 300vh;
+  display: grid;
+  grid-template: 1fr 1fr 1fr 1fr 1fr/1fr 1fr 1fr 1fr;
+  gap: 5% 5%; 
+}
+.box{
+  background-color: gray;
+ 
 }
 </style>

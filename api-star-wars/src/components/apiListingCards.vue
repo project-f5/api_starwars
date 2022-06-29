@@ -1,12 +1,12 @@
 <template>
   <div class="card" >
     <img :src="src"/>
-    <ul>
-      <li>{{name}}</li>
-      <li>{{gender}}</li>
-      <li>Species</li>
-      <li>Homeworld</li>
-    </ul>
+    <div>
+      <h4>{{name}}</h4>
+      <h4>{{gender}}</h4>
+      <h4>Species</h4>
+      <h4>Homeworld</h4>
+    </div>
   </div>
 </template>
 
@@ -33,12 +33,18 @@ export default {
 </script>
 
 <style scoped>
+img{
+  height: 15vh;
+  width: 10vw;
+}
 .card{
-  border: 2px solid white;
   display: flex;
-  direction: row;
+  flex-direction: column;
   justify-content: center;
-  width: 20%;
-  height: 100px;
+  align-items: center;
+  padding: 2em;
+}
+h4{
+  color:white;
 }
 </style>
