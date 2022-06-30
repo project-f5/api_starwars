@@ -13,13 +13,15 @@ import IconHome from './icons/IconHome.vue';
     </div>
   
     <nav>
-      <button>
-        <IconHome />
-        <a href="/home/"><h3>Home</h3></a>
+      <button type="button">
+        <a href="/home/"><IconHome /></a>
+        <a class="buttontext" href="/home/"><h3>Home</h3></a>
       </button>
       <button>
+        <a href="/favorites/">
         <img src="../components/icons/favoritos.png" alt="">
-        <a href="/favorites/" ><h3>Favorites</h3></a>
+        </a>
+        <a class="buttontext" href="/favorites/" ><h3>Favorites</h3></a>
       </button>
     </nav>
   </header>
@@ -82,18 +84,18 @@ nav {
 button {
   display: inline-flex;
   align-items: flex-end;
-  background-color: #6c5807;
+  background-color: #6c5807; 
   border: none;
   margin-bottom: 1rem;
   gap: 1rem;
 }
-a{
+.buttontext{
   border-radius: 1rem;
   background: rgba(255, 61, 0, 0.3);
   padding: 10px 30px 10px 30px;
   text-decoration: none;
   }
-  a:hover {
+  .buttontext:hover {
     background: white;
   }
   h3{
@@ -106,5 +108,5 @@ a{
   h3:hover{
     color: black;
   }
-
+  
 </style>
