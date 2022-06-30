@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <template>
   <div class="card" >
     <img :src="src"/>
@@ -11,8 +10,6 @@
   </div>
 </template>
 
-=======
->>>>>>> Stashed changes
 <script>
 export default {
   name: "apiListingCards",
@@ -35,21 +32,6 @@ export default {
 };
 </script>
 
-<<<<<<< Updated upstream
-=======
-<template>
-  <div class="card" >
-    <img :src="src"/>
-    <div>
-      <h4>{{name}}</h4>
-      <h4>{{gender}}</h4>
-      <h4>Species</h4>
-      <h4>Homeworld</h4>
-    </div>
-  </div>
-</template>
-
->>>>>>> Stashed changes
 <style scoped>
 img{
   height: 15vh;

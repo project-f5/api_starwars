@@ -1,23 +1,7 @@
-<<<<<<< Updated upstream
-<template>
-  <HeaderComponent />
-  <h4>CHARACTER GUIDE</h4>
-  <div class="grid">
-    <div class="box" v-for="(character, index) in characters" :key="character.index">
-      <apiListingCards :src="images[index].url" :name="character.name" :gender="character.gender" />
-    </div>
-  </div>
-  <footer>This is the footer</footer>
-</template>
-
-<script>
-import apiListingCards from "../components/apiListingCards.vue";
-=======
 <script>
 import apiListingCards from "../components/apiListingCards.vue";
 import HeaderComponent from "../components/HeaderComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
->>>>>>> Stashed changes
 export default {
   name: "HomeView",
   data() {
@@ -119,25 +103,6 @@ export default {
   created() {
     this.getCharacters();
   },
-<<<<<<< Updated upstream
-  components: { apiListingCards },
-};
-</script>
-
-<style scoped>
-.grid{
-  border: 2px solid black;
-  width: 200vh;
-  height: 300vh;
-  display: grid;
-  grid-template: 1fr 1fr 1fr 1fr 1fr/1fr 1fr 1fr 1fr;
-  gap: 5% 5%; 
-}
-.box{
-  background-color: gray;
- 
-}
-=======
   components: { apiListingCards, HeaderComponent, FooterComponent },
 };
 </script>
@@ -193,5 +158,4 @@ h4 {
   font-family: 'Concert One', cursive;
 }
 
->>>>>>> Stashed changes
 </style>

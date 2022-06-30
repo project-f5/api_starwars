@@ -1,15 +1,3 @@
-<<<<<<< Updated upstream
-<template>
-  <h1></h1>
-</template>
-<script>
-export default {
-  name: "HeaderComponent",
-  data: () => ({}),
-};
-</script>
-<style scoped></style>
-=======
 <script setup>
 import IconStarwars from './icons/IconStarwars.vue';
 import IconHome from './icons/IconHome.vue';
@@ -119,12 +107,4 @@ a{
     color: black;
   }
 
-
-
-
-
-
-
-
 </style>
->>>>>>> Stashed changes
