@@ -47,4 +47,11 @@ img{
 h4{
   color:white;
 }
+@media (max-width: 400px) {
+  img{
+    height: 20vh;
+    width: 20vw;
+    
+  }
+}
 </style>
