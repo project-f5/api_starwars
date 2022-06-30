@@ -50,6 +50,7 @@ export default {
   },
 };
 </script>
+
 <template>
   <div>
     <img :src="src" />
@@ -64,4 +65,28 @@ export default {
     </ul>
   </div>
 </template>
-<style></style>
+
+<style scoped>
+img{
+  height: 15vh;
+  width: 10vw;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+h4{
+  color:white;
+}
+@media (max-width: 400px) {
+  img{
+    height: 20vh;
+    width: 20vw;
+    
+  }
+}
+</style>
+
