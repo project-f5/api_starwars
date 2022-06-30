@@ -52,22 +52,27 @@ export default {
 </script>
 
 <template>
-  <div>
-    <img :src="src" />
-    <ul>
-      <li>Name: {{ name }}</li>
-      <li>Gender: {{ gender }}</li>
-      <li v-if="Object.keys(planets).includes(homeworld)">
+  <div class="card" >
+    <img class="ficha" :src="src" />
+    <div >
+      <h4>Name: {{ name }}</h4>
+      <h4>Gender: {{ gender }}</h4>
+      <h4 v-if="Object.keys(planets).includes(homeworld)">
         Homeworld: {{ planets[homeworld] }}
-      </li>
-      <li v-if="Object.keys(species)">Specie: {{ species[speciesData] }}</li>
-      <li v-else>FALSE</li>
-    </ul>
+      </h4>
+      <h4 v-if="Object.keys(species)">Specie: {{ species[speciesData] }}</h4>
+      <h4 v-else>FALSE</h4>
+      <button type="button">
+        <a href="/favorites/">
+        <img src="../components/icons/favoritos.png" alt="favorite"/>
+        </a>
+      </button>
+    </div>
   </div>
 </template>
 
 <style scoped>
-img{
+.ficha{
   height: 15vh;
   width: 10vw;
 }
@@ -76,16 +81,23 @@ img{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2em;
+  padding: 1em;
+  padding-top: 2em;
 }
 h4{
   color:white;
 }
+button{
+  background-color:rgba(151, 151, 151, 0);
+  border: none;
+  margin-left: 12vw;
+  
+}
+
 @media (max-width: 400px) {
-  img{
+  .ficha{
     height: 20vh;
     width: 20vw;
-    
   }
 }
 </style>
