@@ -1,3 +1,20 @@
+<<<<<<< Updated upstream
+<template>
+  <h1></h1>
+</template>
+<script>
+export default {
+  name: "HeaderComponent",
+  data: () => ({}),
+};
+</script>
+<style scoped></style>
+=======
+<script setup>
+import IconStarwars from './icons/IconStarwars.vue';
+import IconHome from './icons/IconHome.vue';
+
+</script>
 <template>
   <header>
     <div class="iconprincipal">
@@ -14,44 +31,65 @@
       </button>
       <button>
         <img src="../components/icons/favoritos.png" alt="">
-        <a href="/favorites/"><h3>Favorites</h3></a>
+        <a href="/favorites/" ><h3>Favorites</h3></a>
       </button>
     </nav>
   </header>
 </template>
-<script>
-import IconStarwars from './icons/IconStarwars.vue';
-import IconHome from './icons/IconHome.vue';
-export default {
-    name: "HeaderComponent",
-    data: () => ({}),
-    components: { IconStarwars, IconHome }
-};
-</script>
+
 <style scoped>
-header {
+  header {
   height: 200px;
   max-width: 100%;
   display: flex;
   justify-content: center;
   text-align: center;
   justify-content: space-around;
-  background-color: #6c5807;
+   background-color: #6c5807;
+}
+
+
+@media (max-width: 400px) {
+  header{
+    display: inline;
+    margin: auto;
+    background-color: #6c5807;
+  }
 }
 .iconprincipal{
-  padding-top: 2rem;
-  padding-left: 2rem;
+  padding: 2.5rem 2rem 1rem 2rem;
+  
 }
+
 .title {
   color: white;
   font-family: 'Concert One', cursive;
-  font-size: 30px;
+  font-size: 22px;
+  text-align: center;
+  margin: auto;
   }
+ @media (max-width: 400px){
+  .title {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-block-end: 1.5rem ;
+  }
+ }
+ h1 {
+  margin: 0.5rem;
+ }
   
 nav {
   display: flex;
   align-items: flex-end;
-  background-color: #6c5807;
+  
+}
+@media (max-width: 400px) {
+  nav{
+    display: block;
+    margin: auto;
+  }
 }
 button {
   display: inline-flex;
@@ -80,4 +118,13 @@ a{
   h3:hover{
     color: black;
   }
+
+
+
+
+
+
+
+
 </style>
+>>>>>>> Stashed changes

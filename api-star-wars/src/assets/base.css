@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --vt-c-white: #ffffff;
@@ -72,4 +73,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+=======
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+    font-weight: normal;
+}
+
+body {
+    background-color: black
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+>>>>>>> Stashed changes

@@ -1,15 +1,13 @@
+<script setup>
+
+</script>
+
 <template>
 <div>
   <img src="../components/icons/footer.png" alt="">
 </div>
 </template>
-<script>
-export default {
-    name: "FooterComponent",
-    data: () => ({}),
 
-};
-</script>
 <style scoped>
 div{
   background-color: #1D1D1D;
