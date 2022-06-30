@@ -10,8 +10,8 @@ export default {
 
 <template>
 <div>
-  <HomeView></HomeView>
-  <RouterLink to="/favorite"></RouterLink>
+ <HomeView></HomeView>
+ <FavoriteView></FavoriteView> 
 </div>
   
 </template>

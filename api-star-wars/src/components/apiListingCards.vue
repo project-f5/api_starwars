@@ -64,7 +64,7 @@ export default {
       <h4 v-else>FALSE</h4>
       <button type="button">
         <a href="/favorites/">
-        <img src="../components/icons/favoritos.png" alt="favorite"/>
+        <img class="icon-favorite" src="../assets/imgs/favoritos.png" alt="favorite"/>
         </a>
       </button>
     </div>
@@ -72,33 +72,6 @@ export default {
 </template>
 
 <style scoped>
-.ficha{
-  height: 15vh;
-  width: 10vw;
-}
-.card{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1em;
-  padding-top: 2em;
-}
-h4{
-  color:white;
-}
-button{
-  background-color:rgba(151, 151, 151, 0);
-  border: none;
-  margin-left: 12vw;
-  
-}
-
-@media (max-width: 400px) {
-  .ficha{
-    height: 20vh;
-    width: 20vw;
-  }
-}
+@import '../assets/apiListingCards.css';
 </style>
 

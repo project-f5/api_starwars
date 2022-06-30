@@ -77,40 +77,6 @@ export default {
 </template>
 
 
-
-
 <style scoped>
-
-.grid {
-  border: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 4rem;
-  margin: 2rem;
-}
-
-
-@media (max-width: 405px){
-  .grid {
-    display: grid;
-    grid-template-columns:1fr 1fr ;
-    gap: 2rem;
-    margin: 1rem;
-  }
-}
-
-.box {
-background: rgba(151, 151, 151, 0.19);
-font-family: 'Concert One', cursive;
-text-align: center;
-line-height: 2rem;
-}
-
-h4 {
-  text-align: center;
-  color: white;
-  font-size: 1.8rem;
-  font-family: 'Concert One', cursive;
-}
-
+@import '../assets/homeView.css';
 </style>
