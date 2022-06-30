@@ -1,7 +1,10 @@
 <template>
   <HeaderComponent />
-  <div>
-    <apiListingCards :characters="characters" />
+  <h4>CHARACTER GUIDE</h4>
+  <div class="grid">
+    <div class="box" v-for="(character, index) in characters" :key="character.index">
+      <apiListingCards :src="images[index].url" :name="character.name" :gender="character.gender" />
+    </div>
   </div>
   <FooterComponent />
 </template>
@@ -10,6 +13,7 @@
 import apiListingCards from "../components/apiListingCards.vue";
 import HeaderComponent from "../components/HeaderComponent.vue";
 import FooterComponent from "../components/FooterComponent.vue";
+
 export default {
   name: "HomeView",
   data() {
@@ -18,6 +22,68 @@ export default {
       api: [
         "https://swapi.dev/api/people?page=1",
         "https://swapi.dev/api/people?page=2",
+      ],
+      images: [
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/1.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/2.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/3.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/4.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/5.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/6.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/7.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/8.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/9.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/10.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/11.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/12.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/13.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/14.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/15.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/16.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/18.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/19.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/20.jpg",
+        },
+        {
+          url: "https://starwars-visualguide.com/assets/img/characters/21.jpg",
+        },
       ],
     };
   },
@@ -49,8 +115,23 @@ export default {
   created() {
     this.getCharacters();
   },
+
   components: { apiListingCards, HeaderComponent, FooterComponent },
+
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.grid{
+  border: 2px solid black;
+  width: 200vh;
+  height: 300vh;
+  display: grid;
+  grid-template: 1fr 1fr 1fr 1fr 1fr/1fr 1fr 1fr 1fr;
+  gap: 5% 5%; 
+}
+.box{
+  background-color: gray;
+ 
+}
+</style>

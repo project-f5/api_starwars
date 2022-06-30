@@ -1,19 +1,50 @@
 <template>
-  <div class="card" v-for="(character, index) in characters" :key="index">
-    <h3>{{ character.name }}</h3>
-    <h3>{{ character.gender }}</h3>
+  <div class="card" >
+    <img :src="src"/>
+    <div>
+      <h4>{{name}}</h4>
+      <h4>{{gender}}</h4>
+      <h4>Species</h4>
+      <h4>Homeworld</h4>
+    </div>
   </div>
 </template>
+
 <script>
 export default {
   name: "apiListingCards",
   data: () => ({}),
   props: {
-    characters: {
-      type: Array,
+    name: {
+      type: String,
       required: true,
     },
+    gender: {
+      type: String,
+      required: true,
+    },
+    src: {
+      type: String,
+      required: true,
+    },
+
   },
 };
 </script>
-<style scoped></style>
+
+<style scoped>
+img{
+  height: 15vh;
+  width: 10vw;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+h4{
+  color:white;
+}
+</style>
