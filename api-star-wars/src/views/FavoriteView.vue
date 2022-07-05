@@ -6,11 +6,12 @@ export default{
 </script>
 
 <template>
-<header>
-</header>
+<h1>estamos hasta los huevos</h1>
 
 </template>
 
-<style>
-
+<style scoped>
+h1 {
+    color:white;
+}
 </style>
