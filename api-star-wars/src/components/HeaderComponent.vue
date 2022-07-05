@@ -14,20 +14,21 @@ import IconHome from './icons/IconHome.vue';
 
     <nav>
       <button type="button">
-        <a href="/home/">
-          <IconHome />
-        </a>
-        <a class="buttontext" href="/home/">
-          <h3>Home</h3>
-        </a>
+        <RouterLink to="/"> <IconHome /></RouterLink>
+         
+      
+        <RouterLink to="/">
+          <H3>Home</H3>
+        </RouterLink>
+
       </button>
       <button>
-        <a href="./favorite">
-          <img  class="fav" src="../assets/imgs/favoritos.png" alt="Icon Fav">
-        </a>
-        <a class="buttontext" href="./favorite">
-          <h3>Favorites</h3>
-        </a>
+        <RouterLink to="/favorite"><img class="fav" src="../assets/imgs/favoritos.png" alt="Icon Fav"></RouterLink>
+
+
+        <RouterLink to="/favorite">
+          <H3>Favorite</H3>
+        </RouterLink>
       </button>
     </nav>
   </header>

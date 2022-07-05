@@ -1,7 +1,5 @@
 <script>
 import apiListingCards from "../components/apiListingCards.vue";
-import HeaderComponent from "../components/HeaderComponent.vue";
-import FooterComponent from "../components/FooterComponent.vue";
 export default {
   name: "HomeView",
   data() {
@@ -53,13 +51,11 @@ export default {
     this.getCharacters();
     this.getImages();
   },
-  components: { apiListingCards, HeaderComponent, FooterComponent },
+  components: { apiListingCards},
 };
 </script>
 
 <template>
-<HeaderComponent />
-  <br>
   <h4>CHARACTER GUIDE</h4>
   <div class="grid">
     <div class="box" v-for="(character, index) in characters" :key="character.index" >
@@ -72,8 +68,6 @@ export default {
     />
     </div>
   </div>
-  <br>
-  <FooterComponent/>
 </template>
 
 
