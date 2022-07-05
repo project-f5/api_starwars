@@ -16,21 +16,14 @@ export default {
   methods: {
     async getCharacters() {
       let dataCharacters = [];
-      for (let i = 0; i < 2; i++) {
-        let response = await fetch(this.api[i]);
-        let data = await response.json();
-        if (i === 0) {
-          let dataArray = data.results;
-          dataArray.forEach(function (element) {
+      const apiUrls = this.api;
+      for(const url of apiUrls) {
+        const response = await fetch(url);
+        const data = await response.json();
+        const charactersArray = data.results;
+        charactersArray.forEach(function (element) {
             dataCharacters.push(element);
           });
-        }
-        if (i === 1) {
-          let dataArray = data.results;
-          dataArray.forEach(function (element) {
-            dataCharacters.push(element);
-          });
-        }
       }
       this.characters = dataCharacters;
     },
