@@ -1,7 +1,5 @@
 <script>
 import apiListingCards from "../components/apiListingCards.vue";
-import HeaderComponent from "../components/HeaderComponent.vue";
-import FooterComponent from "../components/FooterComponent.vue";
 export default {
   name: "HomeView",
   data() {
@@ -18,21 +16,14 @@ export default {
   methods: {
     async getCharacters() {
       let dataCharacters = [];
-      for (let i = 0; i < 2; i++) {
-        let response = await fetch(this.api[i]);
-        let data = await response.json();
-        if (i === 0) {
-          let dataArray = data.results;
-          dataArray.forEach(function (element) {
+      const apiUrls = this.api;
+      for(const url of apiUrls) {
+        const response = await fetch(url);
+        const data = await response.json();
+        const charactersArray = data.results;
+        charactersArray.forEach(function (element) {
             dataCharacters.push(element);
           });
-        }
-        if (i === 1) {
-          let dataArray = data.results;
-          dataArray.forEach(function (element) {
-            dataCharacters.push(element);
-          });
-        }
       }
       this.characters = dataCharacters;
     },
@@ -53,13 +44,11 @@ export default {
     this.getCharacters();
     this.getImages();
   },
-  components: { apiListingCards, HeaderComponent, FooterComponent },
+  components: { apiListingCards},
 };
 </script>
 
 <template>
-<HeaderComponent />
-  <br>
   <h4>CHARACTER GUIDE</h4>
   <div class="grid">
     <div class="box" v-for="(character, index) in characters" :key="character.index" >
@@ -72,45 +61,9 @@ export default {
     />
     </div>
   </div>
-  <br>
-  <FooterComponent/>
 </template>
 
 
-
-
 <style scoped>
-
-.grid {
-  border: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 4rem;
-  margin: 2rem;
-}
-
-
-@media (max-width: 405px){
-  .grid {
-    display: grid;
-    grid-template-columns:1fr 1fr ;
-    gap: 2rem;
-    margin: 1rem;
-  }
-}
-
-.box {
-background: rgba(151, 151, 151, 0.19);
-font-family: 'Concert One', cursive;
-text-align: center;
-line-height: 2rem;
-}
-
-h4 {
-  text-align: center;
-  color: white;
-  font-size: 1.8rem;
-  font-family: 'Concert One', cursive;
-}
-
+@import '../assets/homeView.css';
 </style>
