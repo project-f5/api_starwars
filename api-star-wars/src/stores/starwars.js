@@ -11,8 +11,13 @@ export const useStarwarsStore = defineStore({
     },
     actions: {
         addFavorite(src,character) {
-            this.pictureArray.push(src)
-            this.characterArray.push(character)
+            if(this.characterArray.includes(character)) {
+                console.log("Nada");
+            } else{
+                this.pictureArray.push(src);
+                this.characterArray.push(character);
+            }
+           
         },
         deleteFavorite(index) {
             this.characterArray.splice(index, 1);
