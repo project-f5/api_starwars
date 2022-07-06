@@ -1,5 +1,7 @@
 <script>
+import { mapActions } from "pinia";
 import apiListingCards from "../components/apiListingCards.vue";
+import { useStarwarsStore } from "../stores/starwars";
 export default {
   name: "HomeView",
   data() {
@@ -39,6 +41,7 @@ export default {
         }
       }
     },
+    //...mapActions(useStarwarsStore, ['addFavorite'])
   },
   created() {
     this.getCharacters();
@@ -58,6 +61,7 @@ export default {
       :gender="character.gender"
       :homeworld="character.homeworld"
       :speciesData="character.species"
+      :character="character"
     />
     </div>
   </div>

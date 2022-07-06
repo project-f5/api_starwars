@@ -1,10 +1,10 @@
 <script>
-import { mapState } from 'pinia';
-import HeaderComponent from '../components/HeaderComponent.vue'; 
+import { mapActions } from 'pinia';
 import { useStarwarsStore } from '../stores/starwars';
-import FavoriteCard from '../components/FavoriteCard.vue';
-export default{
-    data() {
+
+export default {
+  name: "favoriteCard",
+  data() {
     return {
       planets: {
         "https://swapi.dev/api/planets/1/": "Tattoine",
@@ -29,29 +29,55 @@ export default{
       },
     };
   },
-    components: { HeaderComponent, FavoriteCard },
-    computed:{
-        ...mapState(useStarwarsStore, ['characterArray','pictureArray'])
-    }
-
-}
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    gender: {
+      type: String,
+      required: true,
+    },
+    src: {
+      type: String,
+      required: true,
+    },
+    homeworld: {
+      type: String,
+      required: true,
+    },
+    speciesData: {
+      type: Array,
+      required: true,
+    },
+  },
+  methods:{
+    ...mapActions(useStarwarsStore, ['addFavorite'])
+  }
+};
 </script>
 
 <template>
-<h1>estamos hasta los huevos</h1>
-<div class="grid">
-    <div class="box" v-for="(character, index) in characterArray" :key="character.index">
-    <FavoriteCard
-      :src="pictureArray[index]"
-      :name="character.name"
-      :gender="character.gender"
-      :homeworld="character.homeworld"
-      :speciesData="character.species"
-    />
+  <div class="card" >
+    <img class="ficha" :src="src" />
+    <div >
+      <h4>Name: {{ name }}</h4>
+      <h4>Gender: {{ gender }}</h4>
+      <h4 v-if="Object.keys(planets).includes(homeworld)">
+        Homeworld: {{ planets[homeworld] }}
+      </h4>
+      <h4 v-if="Object.keys(species)">Specie: {{ species[speciesData] }}</h4>
+      <h4 v-else>FALSE</h4>
+      <button type="button">
+        <a>
+        <img class="icon-delete" src="" alt="delete"/>
+        </a>
+      </button>
     </div>
   </div>
 </template>
 
 <style scoped>
-@import '../assets/homeView.css';
+@import '../assets/apiListingCards.css';
 </style>
+

@@ -1,4 +1,7 @@
 <script>
+import { mapActions } from 'pinia';
+import { useStarwarsStore } from '../stores/starwars';
+
 export default {
   name: "apiListingCards",
   data() {
@@ -47,7 +50,14 @@ export default {
       type: Array,
       required: true,
     },
+    character: {
+      type: Array,
+      required: true,
+    },
   },
+  methods:{
+    ...mapActions(useStarwarsStore, ['addFavorite'])
+  }
 };
 </script>
 
@@ -62,8 +72,8 @@ export default {
       </h4>
       <h4 v-if="Object.keys(species)">Specie: {{ species[speciesData] }}</h4>
       <h4 v-else>FALSE</h4>
-      <button type="button">
-        <a href="/favorites/">
+      <button type="button" @click="addFavorite(src,character)">
+        <a>
         <img class="icon-favorite" src="../assets/imgs/favoritos.png" alt="favorite"/>
         </a>
       </button>
