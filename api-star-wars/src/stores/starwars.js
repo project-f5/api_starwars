@@ -14,5 +14,10 @@ export const useStarwarsStore = defineStore({
             this.pictureArray.push(src)
             this.characterArray.push(character)
         },
-    },
-})
+        deleteFavorite(index) {
+            this.characterArray.splice(index, 1);
+            this.pictureArray.splice(index, 1);
+            console.log(index);
+        }
+        }
+    })

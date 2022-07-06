@@ -42,6 +42,7 @@ export default{
 <div class="grid">
     <div class="box" v-for="(character, index) in characterArray" :key="character.index">
     <FavoriteCard
+      :index="index"
       :src="pictureArray[index]"
       :name="character.name"
       :gender="character.gender"
