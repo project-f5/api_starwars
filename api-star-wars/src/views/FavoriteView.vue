@@ -51,6 +51,10 @@ export default{
     />
     </div>
   </div>
+        <div class="button-add">
+          <button class="button-img" type="button"></button> 
+        <h5>ADD NEW CHARACTERS</h5>
+        </div>
 </template>
 
 <style scoped>
