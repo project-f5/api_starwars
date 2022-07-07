@@ -5,7 +5,7 @@ export const useStarwarsStore = defineStore({
     state: () => ({
         pictureArray: [],
         characterArray:[],
-        personalizedCharacterArray: [],
+        characterAddArray: [],
     }),
     getters: {
         
@@ -27,6 +27,7 @@ export const useStarwarsStore = defineStore({
         },
         addNewCharacter(){
             this.personalizedCharacterArray.push(this.characterArray)
-        }
+        },
+
         }
     })

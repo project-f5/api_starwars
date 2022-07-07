@@ -1,18 +1,13 @@
 <script>
-import { mapState } from 'pinia'
+import { mapActions, mapState } from 'pinia'
 import HeaderComponent from '../components/HeaderComponent.vue'
 import { useStarwarsStore } from '../stores/starwars'
 import FavoriteCard from '../components/FavoriteCard.vue'
+import PersonalizedCard from '../components/personalizedCard.vue'
 export default {
     data() {
         return {
             characterAddArray: [],
-
-            name: '',
-            gender: '',
-            homeworld: '',
-            specie: '',
-            src: [],
 
             planets: {
                 'https://swapi.dev/api/planets/1/': 'Tattoine',
@@ -37,9 +32,9 @@ export default {
             },
         }
     },
-    components: { HeaderComponent, FavoriteCard },
+    components: { HeaderComponent, FavoriteCard, PersonalizedCard },
     computed: {
-        ...mapState(useStarwarsStore, ['characterArray', 'pictureArray']),
+        ...mapState(useStarwarsStore, ['characterArray', 'pictureArray', 'characterAddArray']),
     },
     methods: {
         submit: function () {
@@ -78,11 +73,11 @@ export default {
             v-for="character in characterAddArray"
             :key="character.index"
         >
-            <FavoriteCard
+            <PersonalizedCard
                 :name="character.name"
                 :gender="character.gender"
                 :homeworld="character.homeworld"
-                :speciesData="character.species"
+                :speciesData="character.specie"
             />
         </div>
     </div>
