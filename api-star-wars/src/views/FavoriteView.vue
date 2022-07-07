@@ -8,6 +8,11 @@ export default {
     data() {
         return {
             characterAddArray: [],
+                name: '',
+                gender: '',
+                homeworld: '',
+                specie: '',
+                src: [],
 
             planets: {
                 'https://swapi.dev/api/planets/1/': 'Tattoine',
@@ -34,10 +39,10 @@ export default {
     },
     components: { HeaderComponent, FavoriteCard, PersonalizedCard },
     computed: {
-        ...mapState(useStarwarsStore, ['characterArray', 'pictureArray', 'characterAddArray']),
+        ...mapState(useStarwarsStore, ['characterArray', 'pictureArray', 'characterAddFavoriteArray']),
     },
     methods: {
-        submit: function () {
+       submit: function () {
             const character = {
                 name: this.name,
                 gender: this.gender,
@@ -47,6 +52,7 @@ export default {
             this.characterAddArray.push(character)
             console.log(this.characterAddArray)
         },
+        ...mapActions(useStarwarsStore, ['submmit'])
     },
 }
 </script>
@@ -70,7 +76,7 @@ export default {
         </div>
         <div
             class="box"
-            v-for="character in characterAddArray"
+            v-for="character in characterAddFavoriteArray"
             :key="character.index"
         >
             <PersonalizedCard
@@ -127,7 +133,7 @@ export default {
             <input @change="clickImage(src)" type="file" src="" alt="image" />
         </div>
         <div id="btn-add">
-            <input type="submit" value="Create Character" />
+            <button @click="submmit(name,gender,homeworld,specie)">Create Character</button>
         </div>
     </form>
 
