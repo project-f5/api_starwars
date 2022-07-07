@@ -3,7 +3,7 @@ import { mapActions } from 'pinia';
 import { useStarwarsStore } from '../stores/starwars';
 
 export default {
-  name: "apiListingCards",
+  name: "favoriteCard",
   data() {
     return {
       planets: {
@@ -50,13 +50,13 @@ export default {
       type: Array,
       required: true,
     },
-    character: {
-      type: Array,
+    index: {
+      type: Number,
       required: true,
-    },
+    }
   },
   methods:{
-    ...mapActions(useStarwarsStore, ['addFavorite'])
+    ...mapActions(useStarwarsStore, ["deleteFavorite"])
   }
 };
 </script>
@@ -72,10 +72,10 @@ export default {
       </h4>
       <h4 v-if="Object.keys(species)">Specie: {{ species[speciesData] }}</h4>
       <h4 v-else>FALSE</h4>
-      <button type="button" @click="addFavorite(src,character)">
-        <a>
-        <img class="icon-favorite" src="../assets/imgs/favoritos.png" alt="favorite"/>
-        </a>
+      <button type="button" @click="deleteFavorite(index)">
+      <a>
+        <img class="icon-delete" src="../assets/imgs/basura.png 12-01-47-582.png" alt="delete"/>
+      </a>
       </button>
     </div>
   </div>

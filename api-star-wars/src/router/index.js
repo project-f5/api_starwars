@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import FormNewCharacterVue from "../components/FormNewCharacter.vue";
 import FavoriteViewVue from "../views/FavoriteView.vue";
 import HomeViewVue from "../views/HomeView.vue";
 
@@ -16,6 +17,11 @@ const router = createRouter({
       name: "favorite",
       component: FavoriteViewVue,
     },
+    /*{
+      path:"/create",
+      name: "create",
+      component: FormNewCharacterVue
+    }*/
   ],
 });
 
