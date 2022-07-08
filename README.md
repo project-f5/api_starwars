@@ -72,5 +72,5 @@ This project is used by the following companies:
 
 ## Demo
 
-https://drive.google.com/drive/my-drive
+https://drive.google.com/file/d/1Sj0uagAXXvlxgerLADiSwZssJ7x4t08o/view?usp=sharing
 
