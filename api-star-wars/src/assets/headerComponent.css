@@ -71,14 +71,20 @@ button {
     gap: 1rem;
 }
 
-.buttontext {
+#fav, #homie {
     border-radius: 1rem;
     background: rgba(255, 61, 0, 0.3);
     padding: 10px 30px 10px 30px;
     text-decoration: none;
+    margin: 0.4rem;
 }
 
-.buttontext:hover {
+
+#fav:hover {
+    background: white;
+}
+
+ #homie:hover {
     background: white;
 }
 

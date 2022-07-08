@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia'
 
 export const useStarwarsStore = defineStore({
-    id: 'counter',
+    id: 'starwars',
     state: () => ({
         pictureArray: [],
         characterArray:[],
+        characterAddArray: [],
     }),
     getters: {
         
@@ -12,17 +13,21 @@ export const useStarwarsStore = defineStore({
     actions: {
         addFavorite(src,character) {
             if(this.characterArray.includes(character)) {
-                console.log("Nada");
+                alert("Este personaje ya fue seleccionado");
             } else{
                 this.pictureArray.push(src);
                 this.characterArray.push(character);
             }
-           
+                   
         },
         deleteFavorite(index) {
             this.characterArray.splice(index, 1);
             this.pictureArray.splice(index, 1);
             console.log(index);
-        }
+        },
+        addNewCharacter(){
+            this.personalizedCharacterArray.push(this.characterArray)
+        },
+
         }
     })

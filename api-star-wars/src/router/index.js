@@ -16,6 +16,11 @@ const router = createRouter({
       name: "favorite",
       component: FavoriteViewVue,
     },
+    /*{
+      path:"/create",
+      name: "create",
+      component: FormNewCharacterVue
+    }*/
   ],
 });
 
