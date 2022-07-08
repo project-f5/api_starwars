@@ -12,14 +12,13 @@
 #input__form {
     display: grid;
     grid-template-columns: repeat(1, 2fr);
-    grid-template-rows: repeat(5);
-  
-   
+    grid-template-rows: repeat(5); 
 }
 
 h3 {
     padding-bottom: 0.7rem;
     font-family: 'Concert One';
+    color: #fff;
 }
 h4 {
     position: absolute;
