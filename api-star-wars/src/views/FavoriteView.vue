@@ -12,7 +12,7 @@ export default {
                 gender: '',
                 homeworld: '',
                 specie: '',
-                src: [],
+                image: '',
 
             planets: {
                 'https://swapi.dev/api/planets/1/': 'Tattoine',
@@ -48,6 +48,7 @@ export default {
                 gender: this.gender,
                 homeworld: this.homeworld,
                 specie: this.specie,
+                image: this.image,
             }
             this.characterAddArray.push(character)
             console.log(this.characterAddArray)
@@ -80,6 +81,8 @@ export default {
             :key="character.index"
         >
             <PersonalizedCard
+                :index="index"
+                :src="character.image"
                 :name="character.name"
                 :gender="character.gender"
                 :homeworld="character.homeworld"
@@ -129,11 +132,11 @@ export default {
             />
         </div>
         <div id="image">
-            <label>Update Image</label>
-            <input @change="clickImage(src)" type="file" src="" alt="image" />
+            <label>Add Url Image</label>
+            <input type="url" id="image-text" v-model="image"/>
         </div>
         <div id="btn-add">
-            <button @click="submmit(name,gender,homeworld,specie)">Create Character</button>
+            <button @click="submmit(name,gender,homeworld,specie, image)">Create Character</button>
         </div>
     </form>
 
