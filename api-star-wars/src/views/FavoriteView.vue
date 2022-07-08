@@ -8,6 +8,11 @@ export default {
     data() {
         return {
             characterAddArray: [],
+                name: '',
+                gender: '',
+                homeworld: '',
+                specie: '',
+                image: '',
 
             planets: {
                 'https://swapi.dev/api/planets/1/': 'Tattoine',
@@ -34,12 +39,9 @@ export default {
     },
     components: { HeaderComponent, FavoriteCard, PersonalizedCard },
     computed: {
-        ...mapState(useStarwarsStore, [
-            'characterArray',
-            'pictureArray',
-            'characterAddArray',
-        ]),
+        ...mapState(useStarwarsStore, ['characterArray', 'pictureArray', 'characterAddFavoriteArray']),
     },
+   
     methods: {
         submit: function () {
             const character = {
@@ -47,16 +49,28 @@ export default {
                 gender: this.gender,
                 homeworld: this.homeworld,
                 specie: this.specie,
+
+                image: this.image,
+
+
             }
             this.characterAddArray.push(character)
             console.log(this.characterAddArray)
         },
+
+        ...mapActions(useStarwarsStore, ['submmit'])
+
+
     },
 }
 </script>
 
 <template>
-    <!-- <h1>estamos hasta los huevos</h1> -->
+
+  
+
+
+
     <div class="grid">
         <div
             class="box"
@@ -74,10 +88,15 @@ export default {
         </div>
         <div
             class="box"
-            v-for="character in characterAddArray"
+
+            v-for="character in characterAddFavoriteArray"
             :key="character.index"
         >
             <PersonalizedCard
+                :index="index"
+                :src="character.image"
+
+       
                 :name="character.name"
                 :gender="character.gender"
                 :homeworld="character.homeworld"
@@ -86,11 +105,13 @@ export default {
         </div>
     </div>
     <form @submit.prevent="submit" id="formnewcharacter">
-    <label id="title"><h3>ADD CHARACTER</h3></label>
-    <div id="input__form">
-         <div id="name">
-            <label><h4>Name</h4></label>
-            <input class="names"
+
+        <div id="name">
+            <label>Name</label>
+            <input
+
+   
+
                 required
                 type="text"
                 id="name-text"
@@ -99,8 +120,10 @@ export default {
             />
         </div>
         <div id="gender">
-            <label><h4>Gender</h4></label>
-            <input class="genders"
+
+            <label>Gender</label>
+            <input
+
                 required
                 type="text"
                 id="gender-text"
@@ -109,18 +132,21 @@ export default {
             />
         </div>
         <div id="home-world">
-            <label><h4>HomeWorld</h4></label>
-            <input class="homes"
+
+            <label>Homeworld</label>
+            <input
+
                 required
                 type="text"
                 id="homeworld-text"
                 v-model="homeworld"
                 placeholder="HomeWorld"
             />
+
         </div>
         <div id="specie">
-            <label><h4>Species</h4></label>
-            <input class="species"
+            <label>Specie</label>
+            <input
                 required
                 type="text"
                 id="specie-text"
@@ -129,16 +155,13 @@ export default {
             />
         </div>
         <div id="image">
-            <label><h4>Update Image</h4></label>
-            <input class="upload" @change="clickImage(src)" type="file" src="" alt="image"  value="Upload"/>
+            <label>Add Url Image</label>
+            <input type="url" id="image-text" v-model="image"/>
+        </div>
+        <div id="btn-add">
+            <button @click="submmit(name,gender,homeworld,specie, image)">Create Character</button>
         </div>
 
-        <div id="btn-add">
-            <input id="send" type="submit" value="CONFIRM">
-        </div>
-    </div>
-       
-        
     </form>
 
     <!--<button @click="openform()">+</button> -->
@@ -148,6 +171,7 @@ export default {
 
 <style scoped>
 @import '../assets/homeView.css';
+
 #formnewcharacter {
     border: none;
     margin: auto;
@@ -196,12 +220,14 @@ h4 {
     border-radius: 5px;
     width: 11rem;
     height: 1.5rem;
+
 }
 
 #name,
 #gender,
 #home-world,
 #image,
+
 #specie {
     text-align: right;
     margin: 3px;
@@ -246,6 +272,7 @@ h4 {
     font-size: 1.2rem;
     font-family: 'Concert One';
 }
+
 
 
 

@@ -5,7 +5,8 @@ export const useStarwarsStore = defineStore({
     state: () => ({
         pictureArray: [],
         characterArray:[],
-        characterAddArray: [],
+        characterAddFavoriteArray: [],
+
     }),
     getters: {
         
@@ -29,5 +30,14 @@ export const useStarwarsStore = defineStore({
             this.personalizedCharacterArray.push(this.characterArray)
         },
 
+        submmit(name, gender, homeworld, specie, image) {
+            this.characterAddFavoriteArray.push({name : name, gender: gender, homeworld: homeworld, specie: specie, image: image })
+        },
+        deleteAddFavorite(index) {
+            this.characterAddFavoriteArray.splice(index, 1);
         }
-    })
+    }
+})
+
+        
+

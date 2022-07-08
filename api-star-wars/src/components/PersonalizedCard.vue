@@ -1,5 +1,6 @@
 <script>
-import { mapActions } from 'pinia';
+import { mapActions, mapState } from 'pinia'
+
 import { useStarwarsStore } from '../stores/starwars';
 
 export default {
@@ -21,10 +22,20 @@ export default {
       type: String,
       required: true,
     },
+    src: {
+      type: String,
+      required: true,
+    },
+    index: {
+      type: Number,
+      required: true,
+    }
   },
-  methods:{
-    ...mapActions(useStarwarsStore, ["deleteFavorite"])
-  }
+  computed:{
+    ...mapActions(useStarwarsStore, ["deleteAddFavorite"]),
+    ...mapState(useStarwarsStore, ['characterAddFavoriteArray'])
+  },
+
 };
 </script>
 
@@ -38,9 +49,11 @@ export default {
         Homeworld: {{ homeworld }}
       </h4>
       <h4>Specie: {{ speciesData }}</h4>
-      <button type="button" @click="deleteFavorite(index)">
+      <button type="button">
       <a>
-        <img class="icon-delete" src="../assets/imgs/basura.png 12-01-47-582.png" alt="delete"/>
+        <img class="icon-delete" src="../assets/imgs/basura.png 12-01-47-582.png" @click="deleteAddFavorite(index)" alt="delete"/>
+
+
       </a>
       </button>
     </div>
