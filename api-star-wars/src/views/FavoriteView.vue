@@ -41,25 +41,36 @@ export default {
     computed: {
         ...mapState(useStarwarsStore, ['characterArray', 'pictureArray', 'characterAddFavoriteArray']),
     },
+   
     methods: {
-       submit: function () {
+        submit: function () {
             const character = {
                 name: this.name,
                 gender: this.gender,
                 homeworld: this.homeworld,
                 specie: this.specie,
+
                 image: this.image,
+
+
             }
             this.characterAddArray.push(character)
             console.log(this.characterAddArray)
         },
+
         ...mapActions(useStarwarsStore, ['submmit'])
+
+
     },
 }
 </script>
 
 <template>
-    <h1>estamos hasta los huevos</h1>
+
+  
+
+
+
     <div class="grid">
         <div
             class="box"
@@ -77,12 +88,15 @@ export default {
         </div>
         <div
             class="box"
+
             v-for="character in characterAddFavoriteArray"
             :key="character.index"
         >
             <PersonalizedCard
                 :index="index"
                 :src="character.image"
+
+       
                 :name="character.name"
                 :gender="character.gender"
                 :homeworld="character.homeworld"
@@ -91,9 +105,13 @@ export default {
         </div>
     </div>
     <form @submit.prevent="submit" id="formnewcharacter">
+
         <div id="name">
             <label>Name</label>
             <input
+
+   
+
                 required
                 type="text"
                 id="name-text"
@@ -102,8 +120,10 @@ export default {
             />
         </div>
         <div id="gender">
+
             <label>Gender</label>
             <input
+
                 required
                 type="text"
                 id="gender-text"
@@ -112,14 +132,17 @@ export default {
             />
         </div>
         <div id="home-world">
+
             <label>Homeworld</label>
             <input
+
                 required
                 type="text"
                 id="homeworld-text"
                 v-model="homeworld"
                 placeholder="HomeWorld"
             />
+
         </div>
         <div id="specie">
             <label>Specie</label>
@@ -138,6 +161,7 @@ export default {
         <div id="btn-add">
             <button @click="submmit(name,gender,homeworld,specie, image)">Create Character</button>
         </div>
+
     </form>
 
     <!--<button @click="openform()">+</button> -->
@@ -148,32 +172,108 @@ export default {
 <style scoped>
 @import '../assets/homeView.css';
 
-form {
-    border: 0.5rem #fff solid;
+#formnewcharacter {
+    border: none;
     margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    background: rgba(151, 151, 151, 0.2);
+    width: 40rem;
+    padding-top: 1rem;
+
 }
-label {
+
+#input__form {
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    grid-template-rows: repeat(5);
+  
+   
+}
+
+h3 {
+    padding-bottom: 0.7rem;
+    font-family: 'Concert One';
+}
+h4 {
+    position: absolute;
+    font-size: 1.2rem;
+    margin-left: 2rem;
+}
+
+#title {
+    position: relative;
     color: beige;
+    text-align: center;
+    font-size: 1.8rem;
+
 }
-input {
+
+#upload {
+    width: 1rem;
+    height: 2rem;
+}
+ 
+.names, .genders, .homes, .species{
     color: #000;
+    margin: 2px;
+    border-radius: 5px;
+    width: 11rem;
+    height: 1.5rem;
+
 }
 
 #name,
 #gender,
 #home-world,
 #image,
-#btn-add,
+
 #specie {
-    text-align: center;
-    margin: 0.5rem;
+    text-align: right;
+    margin: 3px;
+    margin-right: 50px;
+}
+#name {
+    grid-area: 1 / 1 ;
 }
 
-p {
-    color: #000;
-    background-color: #fff;
-    width: 10rem;
-    margin: auto;
-    margin-top: 0.4rem;
+#gender {
+    grid-template-columns: 1fr 1fr;
+    grid-area: 2 / 1 ;
 }
+#home-world {
+    grid-area: 3 / 1 ;
+}
+
+#specie {
+    grid-area: 4 / 1 ;
+}
+
+#image {
+    grid-area: 5 / 1 ;
+    margin-right:0px ;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#btn-add {
+    grid-area: 5 / 2 ;
+    margin: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 2rem;
+    
+}
+#send {
+    background-color: #666161 ;
+    border: none;
+    color: beige;
+    height: 2.2rem;
+    width: 8rem;
+    font-size: 1.2rem;
+    font-family: 'Concert One';
+}
+
+
+
+
 </style>

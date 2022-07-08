@@ -1,5 +1,6 @@
 <script>
 import { mapActions, mapState } from 'pinia'
+
 import { useStarwarsStore } from '../stores/starwars';
 
 export default {
@@ -33,7 +34,8 @@ export default {
   computed:{
     ...mapActions(useStarwarsStore, ["deleteAddFavorite"]),
     ...mapState(useStarwarsStore, ['characterAddFavoriteArray'])
-  }
+  },
+
 };
 </script>
 
@@ -50,6 +52,8 @@ export default {
       <button type="button">
       <a>
         <img class="icon-delete" src="../assets/imgs/basura.png 12-01-47-582.png" @click="deleteAddFavorite(index)" alt="delete"/>
+
+
       </a>
       </button>
     </div>
