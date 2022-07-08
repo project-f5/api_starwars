@@ -74,7 +74,7 @@ export default {
       <h4 v-else>FALSE</h4>
       <button type="button" @click="addFavorite(src,character)">
         <a>
-        <img class="icon-favorite" src="../assets/imgs/favoritos.png" alt="favorite"/>
+        <img class="icon__favorite" src="../assets/imgs/favoritos.png" alt="favorite"/>
         </a>
       </button>
     </div>
