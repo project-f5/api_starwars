@@ -1,18 +1,18 @@
 <script>
-import { mapState } from 'pinia'
+import { mapActions, mapState } from 'pinia'
 import HeaderComponent from '../components/HeaderComponent.vue'
 import { useStarwarsStore } from '../stores/starwars'
 import FavoriteCard from '../components/FavoriteCard.vue'
+import PersonalizedCard from '../components/personalizedCard.vue'
 export default {
     data() {
         return {
             characterAddArray: [],
-
             name: '',
             gender: '',
             homeworld: '',
             specie: '',
-            src: [],
+            image: '',
 
             planets: {
                 'https://swapi.dev/api/planets/1/': 'Tattoine',
@@ -37,10 +37,15 @@ export default {
             },
         }
     },
-    components: { HeaderComponent, FavoriteCard },
+    components: { HeaderComponent, FavoriteCard, PersonalizedCard },
     computed: {
-        ...mapState(useStarwarsStore, ['characterArray', 'pictureArray']),
+        ...mapState(useStarwarsStore, [
+            'characterArray',
+            'pictureArray',
+            'characterAddFavoriteArray',
+        ]),
     },
+
     methods: {
         submit: function () {
             const character = {
@@ -48,16 +53,19 @@ export default {
                 gender: this.gender,
                 homeworld: this.homeworld,
                 specie: this.specie,
+
+                image: this.image,
             }
             this.characterAddArray.push(character)
             console.log(this.characterAddArray)
         },
+
+        ...mapActions(useStarwarsStore, ['submmit']),
     },
 }
 </script>
 
 <template>
-    <h1>estamos hasta los huevos</h1>
     <div class="grid">
         <div
             class="box"
@@ -75,21 +83,25 @@ export default {
         </div>
         <div
             class="box"
-            v-for="character in characterAddArray"
+            v-for="character in characterAddFavoriteArray"
             :key="character.index"
         >
-            <FavoriteCard
+            <PersonalizedCard
+                :index="index"
+                :src="character.image"
                 :name="character.name"
                 :gender="character.gender"
                 :homeworld="character.homeworld"
-                :speciesData="character.species"
+                :speciesData="character.specie"
             />
         </div>
     </div>
     <form @submit.prevent="submit" id="formnewcharacter">
+    <label id="title"><h3>ADD CHARACTER</h3></label>
+    <div id="input__form">
         <div id="name">
-            <label>Name</label>
-            <input
+            <label><h4>Name</h4></label>
+            <input class="names"
                 required
                 type="text"
                 id="name-text"
@@ -98,8 +110,8 @@ export default {
             />
         </div>
         <div id="gender">
-            <label>Gender</label>
-            <input
+            <label><h4>Gender</h4></label>
+            <input class="genders"
                 required
                 type="text"
                 id="gender-text"
@@ -108,8 +120,8 @@ export default {
             />
         </div>
         <div id="home-world">
-            <label>Homeworld</label>
-            <input
+            <label><h4>HomeWorld</h4></label>
+            <input class="homes"
                 required
                 type="text"
                 id="homeworld-text"
@@ -118,8 +130,8 @@ export default {
             />
         </div>
         <div id="specie">
-            <label>Specie</label>
-            <input
+            <label><h4>Species</h4></label>
+            <input class="species"
                 required
                 type="text"
                 id="specie-text"
@@ -128,12 +140,17 @@ export default {
             />
         </div>
         <div id="image">
-            <label>Update Image</label>
-            <input @change="clickImage(src)" type="file" src="" alt="image" />
+            <label><h4>Add Url Image</h4></label>
+            <input class="upload" type="url" id="image-text" v-model="image" />
         </div>
         <div id="btn-add">
-            <input type="submit" value="Create Character" />
+            <button id="send" @click="submmit(name, gender, homeworld, specie, image)">
+                <h5>CONFIRM</h5>
+            </button>   
         </div>
+         </div>
+        
+        
     </form>
 
     <!--<button @click="openform()">+</button> -->
@@ -143,33 +160,5 @@ export default {
 
 <style scoped>
 @import '../assets/homeView.css';
-
-form {
-    border: 0.5rem #fff solid;
-    margin: auto;
-}
-label {
-    color: beige;
-}
-input {
-    color: #000;
-}
-
-#name,
-#gender,
-#home-world,
-#image,
-#btn-add,
-#specie {
-    text-align: center;
-    margin: 0.5rem;
-}
-
-p {
-    color: #000;
-    background-color: #fff;
-    width: 10rem;
-    margin: auto;
-    margin-top: 0.4rem;
-}
+@import '../assets/PersonalizedCard.css';
 </style>

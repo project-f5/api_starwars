@@ -18,16 +18,16 @@ import IconHome from './icons/IconHome.vue';
          
       
         <RouterLink to="/">
-          <H3>Home</H3>
+         <H3 id="homie">Home</H3>
         </RouterLink>
-
+        
       </button>
       <button>
         <RouterLink to="/favorite"><img class="fav" src="../assets/imgs/favoritos.png" alt="Icon Fav"></RouterLink>
 
 
         <RouterLink to="/favorite">
-          <H3>Favorite</H3>
+          <H3 id="fav">Favorite</H3>
         </RouterLink>
       </button>
     </nav>

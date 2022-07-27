@@ -32,14 +32,20 @@ button {
     }
 }
 
-.icon-favorite {
+.icon__favorite {
     height: 30px;
     margin: auto;
     padding-left: 3rem;
 }
 
+
+.icon__favorite:hover {
+    height: 20px;
+    margin: auto;
+}
+
 @media (max-width: 400px){
-    .icon-favorite {
+    .icon__favorite {
         height: 20px;
         margin: auto;
         margin-top: 1rem;
